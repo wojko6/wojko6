@@ -1,116 +1,67 @@
 # Hi, I'm Wojciech Kołłątaj 👋
 
-I build practical infrastructure, Linux, networking and security projects with a strong focus on **reproducibility, hardening, recovery and evidence-based validation**.
+**Linux · Networking · IT Infrastructure · Security**
 
-My work spans Fedora Workstation engineering, network segmentation, Tailscale/ZTNA, DNS/DNSSEC, firewall policy, packet analysis, disaster recovery and real-time network troubleshooting.
+I build and document hands-on infrastructure projects focused on **reliable operations, network troubleshooting, least privilege, automation, and recovery**. My work combines a real ASUS-based home-lab gateway, a Fedora workstation, and isolated network/security experiments.
+
+I value **reproducible procedures and verifiable results**: configuration and code are version-controlled, changes are tested against explicit criteria, and production observations are kept separate from simulated or experimental results.
 
 ## Featured projects
 
 ### [Advanced ASUS Edge Gateway & Zero-Trust Lab](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure)
 
-A reproducible Home/SMB security-edge lab built on an ASUS TUF-AX5400 with Asuswrt-Merlin.
+A working Home/SMB-style security-edge lab on an **ASUS TUF-AX5400** with Asuswrt-Merlin (GNUton). It is an engineering lab, not a high-availability or enterprise-certified appliance.
 
-Highlights:
+- **Networking and access control:** Tailscale remote access/exit node, restricted management paths, firewall policy, and controlled DNS routing.
+- **DNS operations:** Pi-hole, dnsmasq, Unbound **1.26.2** with DNSSEC validation, and DNS Guard v3.2 with documented recovery behavior and limitations.
+- **Monitoring and incident analysis:** syslog-ng, Alloy, Loki, Grafana, VictoriaMetrics, alerting, packet captures, and dated incident evidence on a separate Fedora host.
+- **Self-hosted services:** RouterCloud, a LAN/Tailscale-scoped file service with authentication, WebDAV, and backup/recovery workflows.
+- **Change safety:** shell/Python tooling, CI checks, isolated ARMv7/QEMU tests, reviewable deployments, backups, and rollback plans.
 
-- Tailscale-based remote access and exit-node capability with project-owned least-privilege firewall chains
-- dnsmasq + Unbound integration with DNSSEC validation
-- LAN classic-DNS enforcement and direct DNS-over-TLS / TCP 853 blocking
-- SSD-backed Entware deployment, swap-backed service startup and recovery workflows
-- backup, restore, rollback, health-check and sanitized evidence tooling
-- GitHub Actions validation and mock/static regression tests
-- live validation of management authorization, DNS paths and exit-node routing
-- GeForce NOW Ethernet/Wi-Fi stability analysis
-- Xbox Cloud Gaming WebRTC analysis using RTP, ICE, jitter, RTT, bitrate and decoder telemetry
-
-Latest documented live checkpoint: project health check completed with **0 failures and 0 warnings**.
-
----
+**Explore:** [Start here](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/START-HERE.md) · [Project status and limits](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/PROJECT-STATUS.md) · [Unbound upgrade and incident report](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/case-studies/unbound-dnssec-autotrust-opkg-incident-2026-10-24.md)
 
 ### [Fedora Workstation Setup](https://github.com/wojko6/fedora-workstation-setup)
 
-A reproducible Fedora Workstation desired-state, hardening, localization and disaster-recovery project.
+Reproducible workstation configuration, security hardening, localization, verification, and recovery engineering.
 
-Highlights:
+- **Accepted reproducible baseline:** Fedora 44 / GNOME Shell 50.5 / Wayland, with automated desired-state and physical-host checks.
+- **Current desktop experimentation:** Fedora 44 / **KDE Plasma 6.7.5** / Wayland on the physical laptop; KDE is in use but has **not** replaced the accepted GNOME restore baseline.
+- **Security and administration:** SELinux, Secure Boot, signed NVIDIA modules, firewalld, systemd, Btrfs, and controlled Tailscale exposure.
+- **Restore and maintenance:** clean-room VM recovery tests, integrity checks, documented update/rollback procedures, and separate encrypted backup/isolated restore work.
+- **Localization engineering:** version-aware Polish translations, source/resource auditing, and runtime UI verification.
 
-- Fedora 44 / GNOME Shell 50.5 / Wayland reference baseline
-- reproducible package, Flatpak, GNOME extension and dconf state
-- security controls covering SELinux, Secure Boot, signed NVIDIA modules, firewalld and network exposure
-- version-aware GNOME extension restore and exact-state validation
-- extensive Polish localization engineering for GNOME extensions and desktop applications
-- controlled Helium/Chromium DataPack localization with strict producer/version validation
-- clean-room disaster-recovery validation in a separate VM
-- upgrade and total-failure recovery runbooks
-- physical-host verification integrated into the repository
-
-Current accepted physical verifier:
-
-```text
-PASS=256 WARN=0 FAIL=0 SKIP=0
-VERIFY_RC=0
-```
-
----
+**Explore:** [Workstation README](https://github.com/wojko6/fedora-workstation-setup) · [Recovery documentation](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/DISASTER-RECOVERY.md)
 
 ### [OPNsense + MikroTik Segmentation Lab](https://github.com/wojko6/OPNsense-MikroTik-Segmentation-Lab)
 
-A completed GNS3 network-security lab combining OPNsense with MikroTik RouterOS CHR.
+**Completed and validated GNS3 lab** combining an OPNsense perimeter firewall with MikroTik RouterOS CHR. It demonstrates routed network segments, stateful firewall rules, NAT, DHCP, restricted administration, and evidence-backed isolation of a downstream network from the trusted LAN.
 
-Highlights:
+## Current engineering labs
 
-- multi-segment routing
-- stateful firewall policy
-- trusted-LAN isolation
-- controlled Internet access
-- NAT and DHCP
-- RouterOS management hardening
-- firewall logging and validation evidence
-- restricted SSH / WinBox administration
+These projects are **experimental, not production-deployed services**.
 
-**Status:** Completed and validated ✅
+### [Homelab Control Center — Fedora V0.3](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/tree/main/experiments/fedora/homelab-control-center-v0.1)
 
-## Selected engineering work
+A manually launched, loopback-only dashboard with **read-only, fixed-query telemetry** from VictoriaMetrics and DNS Guard. Real measurements are distinguished from synthetic demonstrations, which require explicit opt-in. Source and tests are merged; persistent startup and remote access are **not** approved.
 
-### Disaster recovery and reproducibility
+### [Local AI coding-agent security lab](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-10-26.md)
 
-I treat recovery as part of the design rather than an afterthought. My Fedora project includes clean-room restore validation, integrity-checked recovery sets, fail-closed restore helpers, SELinux recovery steps and explicit acceptance criteria.
+Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access.
 
-### Network security and DNS
+## Technical toolkit
 
-My router work covers Tailscale/ZTNA, project-owned firewall policy, DNS interception, DNSSEC-validating Unbound, direct DoT controls, logging, backup/recovery and controlled packet-level validation.
+- **Systems:** Fedora Linux, GNOME, KDE Plasma, Wayland, systemd, SELinux, Secure Boot, Btrfs, Restic
+- **Networking:** TCP/IP, routing, DNS/DNSSEC, DHCP, NAT, iptables/nftables, Tailscale, OPNsense, MikroTik
+- **Observability and diagnostics:** Wireshark, tshark, tcpdump, syslog-ng, Grafana, Loki, Alloy, VictoriaMetrics, WebRTC telemetry
+- **Automation and labs:** Bash, Python, Git, GitHub Actions, Podman, QEMU, GNS3, VirtualBox, VMware
 
-### Real-time network diagnostics
+## What I'm interested in
 
-I have used packet captures, interface counters, latency sampling and application telemetry to investigate latency-sensitive workloads including GeForce NOW and Xbox Cloud Gaming.
-
-### Localization engineering
-
-My Fedora work includes exact-version gettext and resource audits, GNOME extension localization, application resource validation, strict drift detection and physical UI acceptance checks instead of relying only on static translation files.
-
-## Technologies
-
-**Linux & Systems:** Fedora, GNOME, Wayland, systemd, SELinux, Secure Boot, Btrfs, Bash  
-**Networking:** TCP/IP, routing, DNS, DNSSEC, DHCP, NAT, firewalls, OPNsense, MikroTik RouterOS, Tailscale  
-**Security:** ZTNA, least privilege, hardening, threat modeling, recovery, evidence-based validation  
-**Diagnostics:** Wireshark, tshark, tcpdump, iproute2, nftables/iptables, WebRTC Internals  
-**Automation & DevOps:** Git, GitHub, GitHub Actions, shell scripting, validation and rollback workflows  
-**Virtualization / Labs:** GNS3, VirtualBox, VMware, Windows, Active Directory
-
-## Current focus
-
-- strengthening the ASUS Edge Gateway validation and observability model
-- maintaining a reproducible and recoverable Fedora Workstation baseline
-- expanding network and real-time traffic analysis case studies
-- developing practical portfolio projects for infrastructure, networking and security roles
-
-## Roles I'm interested in
-
-- IT Support / Help Desk
-- Junior System Administrator
-- Junior Network Administrator / Network Engineer
-- Junior SOC / Cybersecurity
-- Junior Infrastructure / Security Engineer
+I'm particularly interested in **IT Support / Help Desk, junior system or network administration, infrastructure operations, and entry-level security roles**. My strongest portfolio examples are hands-on troubleshooting, documentation, controlled changes, and diagnosing real systems rather than just configuring them once.
 
 ## Contact
 
-- GitHub: [github.com/wojko6](https://github.com/wojko6)
-- Email: wojtekkotaj6@gmail.com
+- **GitHub:** [github.com/wojko6](https://github.com/wojko6)
+- **Email:** wojtekkotaj6@gmail.com
+
+*Technical claims are scoped to the linked project documentation and dated validation results. Lab prototypes and proposed changes are not presented as production features.*
