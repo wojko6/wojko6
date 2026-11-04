@@ -25,8 +25,8 @@ A working Home/SMB-style security-edge lab on an **ASUS TUF-AX5400** with Asuswr
 Reproducible workstation configuration, security hardening, localization, verification, and recovery engineering.
 
 - **Accepted reproducible baseline:** Fedora 44 / GNOME Shell 50.5 / Wayland, with automated desired-state and physical-host checks.
-- **Current desktop experimentation:** Fedora 44 / **KDE Plasma 6.7.5** / Wayland on the physical laptop; KDE is in use but has **not** replaced the accepted GNOME restore baseline.
-- **Security and administration:** SELinux, Secure Boot, signed NVIDIA modules, firewalld, systemd, Btrfs, and controlled Tailscale exposure.
+- **Physical desktop observation (2026-11-04):** Fedora 44 / **KDE Plasma 6.8.2** / Wayland with NVIDIA 610.57.04; KDE remains a separate pilot and has **not** replaced the accepted Fedora 44/GNOME 50.5 restore baseline. Driver power-management fixes are not fully acceptance-tested.
+- **Security and administration:** SELinux, Secure Boot state auditing, NVIDIA module management, firewalld, systemd, Btrfs, and controlled Tailscale exposure (Secure Boot was reported disabled in the latest Nov 4 check; earlier checkpoints differed).
 - **Restore and maintenance:** clean-room VM recovery tests, integrity checks, documented update/rollback procedures, and separate encrypted backup/isolated restore work.
 - **Localization engineering:** version-aware Polish translations, source/resource auditing, and runtime UI verification.
 
@@ -47,6 +47,8 @@ A manually launched, loopback-only dashboard with **read-only, fixed-query telem
 ### [Local AI coding-agent security lab](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-10-26.md)
 
 Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access.
+
+**November 2026 documentation checkpoint:** the [Fedora 45/NVIDIA 620 preflight B1–B8](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/upgrade-preflights/2026-11-04-fedora45-nvidia620.md) is a non-installing package/dependency investigation. Full B9 and real migration **not performed**. Separate [OpenCore/Sonoma worklog](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-11-04.md) did **not** reach macOS Recovery.
 
 ## Technical toolkit
 
