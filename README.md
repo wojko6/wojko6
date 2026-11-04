@@ -40,13 +40,13 @@ Reproducible workstation configuration, security hardening, localization, verifi
 
 These projects are **experimental, not production-deployed services**.
 
-### [Homelab Control Center — Fedora V0.3](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/tree/main/experiments/fedora/homelab-control-center-v0.1)
+### [Homelab Control Center — published V0.3 and gated follow-up labs](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/tree/main/experiments/fedora/homelab-control-center-v0.1)
 
-A manually launched, loopback-only dashboard with **read-only, fixed-query telemetry** from VictoriaMetrics and DNS Guard. Real measurements are distinguished from synthetic demonstrations, which require explicit opt-in. Source and tests are merged; persistent startup and remote access are **not** approved.
+A manually launched, loopback-only dashboard with **read-only, fixed-query telemetry** from VictoriaMetrics and DNS Guard. V0.3 source is merged; later V0.14.x collection/history experiments remain in [separate Draft PRs](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/pull/338) and are **not** permanently deployed. Real measurements remain distinct from synthetic demonstrations.
 
 ### [Local AI coding-agent security lab](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-10-26.md)
 
-Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access.
+Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access. The separate [C.63 offline source modules were published](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/pull/347) with `MODEL_ACTION_AUTHORITY=NONE`; later C.64 proposals remain under separate Draft review.
 
 **November 2026 documentation checkpoint:** the [Fedora 45/NVIDIA 620 preflight B1–B8](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/upgrade-preflights/2026-11-04-fedora45-nvidia620.md) is a non-installing package/dependency investigation. Full B9 and real migration **not performed**. Separate [OpenCore/Sonoma worklog](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-11-04.md) did **not** reach macOS Recovery.
 
