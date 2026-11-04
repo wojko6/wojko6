@@ -25,8 +25,8 @@ A working Home/SMB-style security-edge lab on an **ASUS TUF-AX5400** with Asuswr
 Reproducible workstation configuration, security hardening, localization, verification, and recovery engineering.
 
 - **Accepted reproducible baseline:** Fedora 44 / GNOME Shell 50.5 / Wayland, with automated desired-state and physical-host checks.
-- **Current desktop experimentation:** Fedora 44 / **KDE Plasma 6.7.5** / Wayland on the physical laptop; KDE is in use but has **not** replaced the accepted GNOME restore baseline.
-- **Security and administration:** SELinux, Secure Boot, signed NVIDIA modules, firewalld, systemd, Btrfs, and controlled Tailscale exposure.
+- **Physical desktop observation (2026-11-04):** Fedora 44 / **KDE Plasma 6.8.2** / Wayland with NVIDIA 610.57.04; KDE remains a separate pilot and has **not** replaced the accepted Fedora 44/GNOME 50.5 restore baseline. Driver power-management fixes are not fully acceptance-tested.
+- **Security and administration:** SELinux, Secure Boot state auditing, NVIDIA module management, firewalld, systemd, Btrfs, and controlled Tailscale exposure (Secure Boot was reported disabled in the latest Nov 4 check; earlier checkpoints differed).
 - **Restore and maintenance:** clean-room VM recovery tests, integrity checks, documented update/rollback procedures, and separate encrypted backup/isolated restore work.
 - **Localization engineering:** version-aware Polish translations, source/resource auditing, and runtime UI verification.
 
@@ -40,13 +40,15 @@ Reproducible workstation configuration, security hardening, localization, verifi
 
 These projects are **experimental, not production-deployed services**.
 
-### [Homelab Control Center — Fedora V0.3](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/tree/main/experiments/fedora/homelab-control-center-v0.1)
+### [Homelab Control Center — published V0.3 and gated follow-up labs](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/tree/main/experiments/fedora/homelab-control-center-v0.1)
 
-A manually launched, loopback-only dashboard with **read-only, fixed-query telemetry** from VictoriaMetrics and DNS Guard. Real measurements are distinguished from synthetic demonstrations, which require explicit opt-in. Source and tests are merged; persistent startup and remote access are **not** approved.
+A manually launched, loopback-only dashboard with **read-only, fixed-query telemetry** from VictoriaMetrics and DNS Guard. V0.3 source is merged; later V0.14.x collection/history experiments remain in [separate Draft PRs](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/pull/338) and are **not** permanently deployed. Real measurements remain distinct from synthetic demonstrations.
 
 ### [Local AI coding-agent security lab](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-10-26.md)
 
-Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access.
+Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access. The separate [C.63 offline source modules were published](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/pull/347) with `MODEL_ACTION_AUTHORITY=NONE`; later C.64 proposals remain under separate Draft review.
+
+**November 2026 documentation checkpoint:** the [Fedora 45/NVIDIA 620 preflight B1–B8](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/upgrade-preflights/2026-11-04-fedora45-nvidia620.md) is a non-installing package/dependency investigation. Full B9 and real migration **not performed**. Separate [OpenCore/Sonoma worklog](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-11-04.md) did **not** reach macOS Recovery.
 
 ## Technical toolkit
 
