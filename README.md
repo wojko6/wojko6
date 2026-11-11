@@ -1,10 +1,12 @@
 # Hi, I'm Wojciech Kołłątaj 👋
 
-**Linux · Networking · IT Infrastructure · Security**
+**Linux · Networking · IT Support · IT Infrastructure · Security**
 
-I build and document hands-on infrastructure projects focused on **reliable operations, network troubleshooting, least privilege, automation, and recovery**. My work combines a real ASUS-based home-lab gateway, a Fedora workstation, and isolated network/security experiments.
+I troubleshoot, maintain, and document Linux workstations and network infrastructure, with a practical focus on **network diagnostics, reliable operations, automation, access control, and recovery**. My projects combine a working ASUS-based home-lab gateway, a Fedora workstation, and isolated network/security experiments.
 
-I value **reproducible procedures and verifiable results**: configuration and code are version-controlled, changes are tested against explicit criteria, and production observations are kept separate from simulated or experimental results.
+I value **reproducible procedures and verifiable results**: changes are tested against explicit criteria, recovery steps are documented, and real-system observations are kept separate from experiments.
+
+**Hands-on skills demonstrated:** Linux troubleshooting and desktop support · TCP/IP, DNS and VPN diagnostics · Grafana/Loki monitoring and incident investigation · Bash/Python scripting · backup, restore and rollback procedures.
 
 ## Featured projects
 
@@ -24,13 +26,14 @@ A working Home/SMB-style security-edge lab on an **ASUS TUF-AX5400** with Asuswr
 
 Reproducible workstation configuration, security hardening, localization, verification, and recovery engineering.
 
-- **Accepted reproducible baseline:** Fedora 44 / GNOME Shell 50.5 / Wayland, with automated desired-state and physical-host checks.
-- **Physical desktop observation (2026-11-04):** Fedora 44 / **KDE Plasma 6.8.2** / Wayland with NVIDIA 610.57.04; KDE remains a separate pilot and has **not** replaced the accepted Fedora 44/GNOME 50.5 restore baseline. Driver power-management fixes are not fully acceptance-tested.
-- **Security and administration:** SELinux, Secure Boot state auditing, NVIDIA module management, firewalld, systemd, Btrfs, and controlled Tailscale exposure (Secure Boot was reported disabled in the latest Nov 4 check; earlier checkpoints differed).
+- **Running workstation (2026-11-11):** Fedora **45 / KDE Plasma 6.8.2 / Wayland**, NVIDIA **620.70.06 Open Kernel Module**, following a controlled Fedora 44 → 45 upgrade.
+- **Last accepted reproducible restore baseline (historical):** Fedora **44 / GNOME Shell 50.5 / Wayland**, with clean-room and physical-host verification. Fedora 45/KDE clean-room restoration and full desired-state promotion remain **HOLD**.
+- **Bounded post-upgrade checks:** boot and external display worked; a real S3 suspend/resume succeeded with one NVIDIA allocation warning. These observations do not establish long-term GPU/session stability or a validated bare-metal rollback.
+- **Security and administration:** SELinux, Secure Boot state auditing, NVIDIA module management, firewalld, systemd, Btrfs, and controlled Tailscale exposure.
 - **Restore and maintenance:** clean-room VM recovery tests, integrity checks, documented update/rollback procedures, and separate encrypted backup/isolated restore work.
-- **Localization engineering:** version-aware Polish translations, source/resource auditing, and runtime UI verification.
+- **Localization and desktop integration:** version-aware Polish translations, source/resource auditing, runtime UI verification, and a locally fixed native Plasma AppBay grid launched from the Krema dock via a registered D-Bus widget action. The panel applet ID is installation-specific; this setup is not yet a portable restore artifact.
 
-**Explore:** [Workstation README](https://github.com/wojko6/fedora-workstation-setup) · [Recovery documentation](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/DISASTER-RECOVERY.md)
+**Explore:** [Workstation README](https://github.com/wojko6/fedora-workstation-setup) · [Current status and limits](https://github.com/wojko6/fedora-workstation-setup/blob/main/PROJECT-STATUS.md) · [AppBay + Krema technical record](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/kde-appbay-krema-launchpad-2026-11-11.md) · [Recovery documentation](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/DISASTER-RECOVERY.md)
 
 ### [OPNsense + MikroTik Segmentation Lab](https://github.com/wojko6/OPNsense-MikroTik-Segmentation-Lab)
 
@@ -48,7 +51,7 @@ A manually launched, loopback-only dashboard with **read-only, fixed-query telem
 
 Testing **Ollama + Qwen3.5 4B + OpenCode** on Fedora with narrowly allowlisted reads/edits, host-controlled tools, rootless network-disabled Podman, SELinux, and independent semantic test gates. A bounded control run and one injected-input test each passed **16/16 semantic checks**; other trials exposed reliability failures. This is evidence from specific tests, **not** a claim of general prompt-injection resistance or autonomous production access. The separate [C.63 offline source modules were published](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/pull/347) with `MODEL_ACTION_AUTHORITY=NONE`; later C.64 proposals remain under separate Draft review.
 
-**November 2026 documentation checkpoint:** the [Fedora 45/NVIDIA 620 preflight B1–B8](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/upgrade-preflights/2026-11-04-fedora45-nvidia620.md) is a non-installing package/dependency investigation. Full B9 and real migration **not performed**. Separate [OpenCore/Sonoma worklog](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-11-04.md) did **not** reach macOS Recovery.
+**November 2026 documentation checkpoint:** a controlled physical [Fedora 45 upgrade](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/WORKLOG-2026-11-10.md) was completed and is documented alongside a [KDE localization audit](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/kde-localization-audit-2026-11-10.md) and the [AppBay/Krema integration](https://github.com/wojko6/fedora-workstation-setup/blob/main/docs/kde-appbay-krema-launchpad-2026-11-11.md). The accepted Fedora 44/GNOME restore evidence remains historical; **Fedora 45/KDE full reproducibility is not yet certified**.
 
 ## Technical toolkit
 
