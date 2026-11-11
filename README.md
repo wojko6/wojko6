@@ -1,10 +1,12 @@
 # Hi, I'm Wojciech Kołłątaj 👋
 
-**Linux · Networking · IT Infrastructure · Security**
+**Linux · Networking · IT Support · IT Infrastructure · Security**
 
-I build and document hands-on infrastructure projects focused on **reliable operations, network troubleshooting, least privilege, automation, and recovery**. My work combines a real ASUS-based home-lab gateway, a Fedora workstation, and isolated network/security experiments.
+I troubleshoot, maintain, and document Linux workstations and network infrastructure, with a practical focus on **network diagnostics, reliable operations, automation, access control, and recovery**. My projects combine a working ASUS-based home-lab gateway, a Fedora workstation, and isolated network/security experiments.
 
-I value **reproducible procedures and verifiable results**: configuration and code are version-controlled, changes are tested against explicit criteria, and production observations are kept separate from simulated or experimental results.
+I value **reproducible procedures and verifiable results**: changes are tested against explicit criteria, recovery steps are documented, and real-system observations are kept separate from experiments.
+
+**Hands-on skills demonstrated:** Linux troubleshooting and desktop support · TCP/IP, DNS and VPN diagnostics · Grafana/Loki monitoring and incident investigation · Bash/Python scripting · backup, restore and rollback procedures.
 
 ## Featured projects
 
