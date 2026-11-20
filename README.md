@@ -17,6 +17,7 @@ A working Home/SMB-style security-edge lab on an **ASUS TUF-AX5400** with Asuswr
 - **Networking and access control:** Tailscale remote access/exit node, restricted management paths, firewall policy, and controlled DNS routing.
 - **DNS operations:** Pi-hole, dnsmasq, Unbound **1.26.2** with DNSSEC validation, and DNS Guard v3.2 with documented recovery behavior and limitations.
 - **Monitoring and incident analysis:** syslog-ng, Alloy, Loki, Grafana, VictoriaMetrics, alerting, packet captures, and dated incident evidence on a separate Fedora host.
+- **Recent production maintenance (2026-11-20):** cross-built Entware **syslog-ng 4.13.0-1** for ARMv7 and performed an attended update of the ASUS TUF-AX5400 from 4.12.0-3; the custom configuration and rollback materials were retained, the new service started, and one uniquely tagged router event was observed in Fedora Loki/Grafana. **Rollback execution, queue replay, reboot persistence and extended soak remain untested.** [Dated worklog](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/worklog/2026-11-20.md) · [upgrade/recovery boundaries](https://github.com/wojko6/Advanced-ASUS-Edge-Gateway-ZTNA-Infrastructure/blob/main/docs/operations/syslog-ng-4.13.0-production-upgrade-2026-11-20.md).
 - **Self-hosted services:** RouterCloud, a LAN/Tailscale-scoped file service with authentication, WebDAV, and backup/recovery workflows.
 - **Change safety:** shell/Python tooling, CI checks, isolated ARMv7/QEMU tests, reviewable deployments, backups, and rollback plans.
 
